@@ -308,6 +308,7 @@ body {
 .footnote {
   padding: 8px 0 16px;
   min-width: 600px;
+  margin-top: auto;
 }
 
 .footnote__text {
@@ -786,4 +787,24 @@ body {
 .export-panel {
   width: 320px;
   max-width: 90vw;
+}
+
+/* ── Share Dialog ──────────────────────────────────────── */
+.share-panel {
+  width: 320px;
+  max-width: 90vw;
+}
+
+.share-desc {
+  font-size: 12px;
+  color: var(--text-color);
+  opacity: 0.55;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.share-btn {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 10px 0;
 }

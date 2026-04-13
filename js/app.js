@@ -5,6 +5,7 @@ import { createFootnote } from './components/footnote.js';
 import { openCourseEditor } from './components/course-editor.js';
 import { openSettingsPanel } from './components/settings-panel.js';
 import { openExportDialog } from './components/export-dialog.js';
+import { openShareDialog } from './components/share-dialog.js';
 
 // State
 let controlsHidden = false;
@@ -48,6 +49,11 @@ const toolbar = createToolbar({
     if (modalOpen) return;
     modalOpen = true;
     openExportDialog(() => { modalOpen = false; });
+  },
+  onShare: () => {
+    if (modalOpen) return;
+    modalOpen = true;
+    openShareDialog(() => { modalOpen = false; });
   },
   onOpenSettings: () => {
     if (modalOpen) return;
