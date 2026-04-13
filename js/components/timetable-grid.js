@@ -67,8 +67,8 @@ export function createTimetableGrid(onEditCourse) {
       col.style.height = `${totalHeight}px`;
       col.style.setProperty('--row-h', `${rowHeight}px`);
 
-      // Hour lines
-      for (let m = firstHour; m <= gridEnd; m += 60) {
+      // Hour lines (skip bottom edge)
+      for (let m = firstHour; m < gridEnd; m += 60) {
         const line = document.createElement('div');
         line.className = 'hour-line';
         line.style.top = `${((m - gridStart) / 15) * rowHeight}px`;

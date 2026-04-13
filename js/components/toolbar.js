@@ -1,6 +1,6 @@
 import { store } from '../store.js';
 
-export function createToolbar({ onAddCourse, onExport, onOpenSettings }) {
+export function createToolbar({ onAddCourse, onExport, onShare, onOpenSettings }) {
   const toolbar = document.createElement('div');
   toolbar.className = 'toolbar';
 
@@ -69,6 +69,11 @@ export function createToolbar({ onAddCourse, onExport, onOpenSettings }) {
   renderBtn.textContent = 'Render';
   renderBtn.addEventListener('click', onExport);
 
+  const shareBtn = document.createElement('button');
+  shareBtn.className = 'toolbar__btn';
+  shareBtn.textContent = 'Share';
+  shareBtn.addEventListener('click', onShare);
+
   const settingsBtn = document.createElement('button');
   settingsBtn.className = 'toolbar__btn';
   settingsBtn.textContent = 'Settings';
@@ -76,6 +81,7 @@ export function createToolbar({ onAddCourse, onExport, onOpenSettings }) {
 
   actions.appendChild(addBtn);
   actions.appendChild(renderBtn);
+  actions.appendChild(shareBtn);
   actions.appendChild(settingsBtn);
   toolbar.appendChild(actions);
 
