@@ -39,6 +39,22 @@ export function openShareDialog(onClose) {
   });
   content.appendChild(linkBtn);
 
+  // Share via OS share sheet (mobile/desktop)
+  if (navigator.share) {
+    const shareBtn = document.createElement('button');
+    shareBtn.className = 'btn-secondary share-btn';
+    shareBtn.textContent = 'Share…';
+    shareBtn.addEventListener('click', async () => {
+      shareBtn.textContent = 'Compressing…';
+      const url = await store.exportURL();
+      try {
+        await navigator.share({ title: store.getState().title, url });
+      } catch { /* user cancelled */ }
+      shareBtn.textContent = 'Share…';
+    });
+    content.appendChild(shareBtn);
+  }
+
   // Close
   const actions = document.createElement('div');
   actions.className = 'settings-actions';
